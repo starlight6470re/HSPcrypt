@@ -1,0 +1,39 @@
+#include "hspinet.as"
+#uselib "rijn.dll"
+#func EncryptFile "EncryptFile" str, str, str
+#func DecryptFile "DecryptFile" str, str, str
+password="": in="": out="" 
+
+mes "These paths must be configured."
+	button gosub "Open Path",*open
+	button gosub "Save Path",*save
+mes "Please be secure when entering your password."
+	input password
+	button gosub "Encryption",*enc
+	button gosub "Decryption",*dec
+stop
+
+*open
+	dialog "",16,""
+	in=refstr	
+return
+*save
+	dialog "",17,""
+	out=refstr
+return
+
+*enc
+	dialog "In  : "+in+"\nOut : "+out+"\nPass: "+password+".\nType: Encryption\n\nAre you sure?",2
+	if stat=7:return
+	dialog "",2
+	varsha256 hash,password
+	result=EncryptFile(in, out, password)
+	if result=0:mes "Success.":else:if result=-1:mes"Open Error.":else:if result=-2:"Save Error.":else:if result=-3:"Unspecific Error."
+return
+*dec
+	dialog "In  : "+in+"\nOut : "+out+"\nPass: "+password+".\nType: Decryption\n\nAre you sure?",2
+	if stat=7:return
+	varsha256 hash,password
+	result=DecryptFile(in, out, password)
+	if result=0:mes "Success.":else:if result=-1:mes"Open Error.":else:if result=-2:"Save Error.":else:if result=-3:"Unspecific Error."
+return
