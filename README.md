@@ -1,5 +1,5 @@
 # HSPcrypt
-Requires: HSP 3.7 beta. This software uses Varsha256.<br>
+Requires: HSP 3.7 beta<br>
 Dependency: <a href="http://type74.org/rijndll.php">Rijn.dll by Type74.org</a><br>
 <br>
 This tool is for testing DLLs used with HSP and for encryption/hashing.<br>
