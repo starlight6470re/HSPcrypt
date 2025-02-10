@@ -1,6 +1,7 @@
 # HSPcrypt
 Requires: HSP 3.7 beta<br>
 Dependency: <a href="http://type74.org/rijndll.php">Rijn.dll by Type74.org</a><br>
+Please download the dll from the link above.<br>
 <br>
 This tool is for testing DLLs used with HSP and for encryption/hashing.<br>
 <br>
